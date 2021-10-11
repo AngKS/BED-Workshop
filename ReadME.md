@@ -21,17 +21,17 @@ We will first use MySQL to create the database Schema and tables.
 
 1. Create a Schema
    
-    ![Creating Schema]()
+    ![Creating Schema](https://github.com/AngKS/BED-Workshop/blob/main/assets/createSchema.png?raw=true)
 2. Enter Schema Name
 
-    ![Schema Name]()
+    ![Schema Name](https://github.com/AngKS/BED-Workshop/blob/main/assets/schemaName.png?raw=true)
 3. Create Table
    
-    ![Creating Table]()
+    ![Creating Table](https://github.com/AngKS/BED-Workshop/blob/main/assets/createTable.png?raw=true)
 4. Enter table Name and columns
    
-    ![Add tableName and Columns]()
+    ![Add tableName and Columns](https://github.com/AngKS/BED-Workshop/blob/main/assets/tableInfo.png?raw=true)
 5. Add values into table
    
-    ![Input Values]()
+    ![Input Values](https://github.com/AngKS/BED-Workshop/blob/main/assets/addValues.png?raw=true)
 
