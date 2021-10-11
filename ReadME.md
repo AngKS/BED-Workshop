@@ -2,6 +2,8 @@
 
 In this workshop, we will be understand how to implement and combine data persistence and a simple web service to develop a simple application backend service.
 
+### [Powerpoint Slides](https://docs.google.com/presentation/d/18_1yieS9Ya9JO49QSkv2flmngZD3-s4gRMsGNwQC-NQ/edit?usp=sharing "Presentation Slides")
+
 ## Topics covered
 * Setting up Persistent Storage Source using MySQL
 * What is MVC
