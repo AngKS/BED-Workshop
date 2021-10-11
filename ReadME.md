@@ -45,3 +45,16 @@ We will first use MySQL to create the database Schema and tables.
    
     ![Input Values](https://github.com/AngKS/BED-Workshop/blob/main/assets/addValues.png?raw=true)
 
+    Input the first 2 rows of values (excluding the last column *created_at*)
+
+## Restful APIs
+
+| URL | HTTP Method | POST Body | Result |
+|-----|-------------|-----------|--------|
+ /user | GET | empty | Retrieve ALL user data|
+ /user/{id} | GET | empty | Retrieve user data with userID |
+ /user | POST | JSON object | Insert new user record |
+ /user/{id} | PUT | JSON object | Update existing user record |
+ /user/{id} | DELETE | empty | Delete user with ID
+
+ 
