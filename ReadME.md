@@ -57,4 +57,11 @@ We will first use MySQL to create the database Schema and tables.
  /user/{id} | PUT | JSON object | Update existing user record |
  /user/{id} | DELETE | empty | Delete user with ID
 
- 
+
+we will be designing our web service based on the Model-View-Controller (MVC) Design with the above API endpoints.
+
+## What is MVC?
+**MVC** is a simple architecture where all components are seperated into 3 classes:
+* ### Model
+* ### View
+* ### Controller
