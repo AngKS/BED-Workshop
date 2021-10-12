@@ -5,17 +5,33 @@ In this workshop, we will be understand how to implement and combine data persis
 ### [Powerpoint Slides](https://docs.google.com/presentation/d/18_1yieS9Ya9JO49QSkv2flmngZD3-s4gRMsGNwQC-NQ/edit?usp=sharing "Presentation Slides")
 
 ## Topics covered
-* Setting up Persistent Storage Source using MySQL
 * What is MVC
+* Setting up Persistent Storage Source using MySQL
 * Defining & Creating database Connection
 * Creating functions for database access
 * Defining the routing in the controller layer
 * Creating main server in the root folder
-* Querying the Database
 * Creating **GET** Method for retrieving User data
 * Creating **POST** Method for inserting and retrieving User data
 * Creating **DELETE** method for deleting User data
 * Creating **UPDATE** Method to update User data
+
+
+we will be designing our web service based on the Model-View-Controller (MVC) Design with the above API endpoints.
+
+## What is MVC?
+![MVC Model](https://github.com/AngKS/BED-Workshop/blob/main/assets/MVCmodel.png?raw=true)
+
+**MVC** is a simple architecture where all components are seperated into 3 classes:
+* ### Model
+  The Model is the file that contains code to interact with the database.
+* ### View
+  The View is the components that will display the model to the user.
+* ### Controller
+  The Components that will handle any interaction with the user.
+
+### Example Scenario of processing an MVC request
+
 
 ## Setting Up Persistent Storage Source With MySQL
 
@@ -49,40 +65,28 @@ We will first use MySQL to create the database Schema and tables.
 
 ## Restful APIs
 
-| URL | HTTP Method | POST Body | Result |
-|-----|-------------|-----------|--------|
- /user | GET | empty | Retrieve ALL user data|
- /user/{id} | GET | empty | Retrieve user data with userID |
- /user | POST | JSON object | Insert new user record |
- /user/{id} | PUT | JSON object | Update existing user record |
- /user/{id} | DELETE | empty | Delete user with ID
+| URL        | HTTP Method | POST Body   | Result                         |
+| ---------- | ----------- | ----------- | ------------------------------ |
+| /user      | GET         | empty       | Retrieve ALL user data         |
+| /user/{id} | GET         | empty       | Retrieve user data with userID |
+| /user      | POST        | JSON object | Insert new user record         |
+| /user/{id} | PUT         | JSON object | Update existing user record    |
+| /user/{id} | DELETE      | empty       | Delete user with ID            |
 
-
-we will be designing our web service based on the Model-View-Controller (MVC) Design with the above API endpoints.
-
-## What is MVC?
-![MVC Model]()
-
-**MVC** is a simple architecture where all components are seperated into 3 classes:
-* ### Model
-  The Model is the file that contains code to interact with the database.
-* ### View
-  The View is the components that will display the model to the user.
-* ### Controller
-  The Components that will handle any interaction with the user.
-
-### Example Scenario of processing an MVC request
 
 
 ## Setting up the application directory and files
 
 1. We will first create a folder called **myFirstWS**.
    
+   ![Create myFirstWS folder](https://github.com/AngKS/BED-Workshop/blob/main/assets/projectfolder.png?raw=true)
 2. Open the folder you just created in VScode; create another 2 folders: **controller** and **model**
+
+![Create 2 sub-folders: controller & model](https://github.com/AngKS/BED-Workshop/blob/main/assets/modelAndController.png?raw=true)
 3. Right-click on the explorer pane empty space or press <kbd>Ctrl</kbd> + <kbd>`</kbd> to open up the integrated terminal.
 4. Run the following code in the integrated terminal to setup and install the necessary packages for your project.
-
-    ```bash
+   
+    ```console
     npm init
     npm install mysql body-parser express
     ```
@@ -115,3 +119,9 @@ module.exports = dbConnect
 ```
 
 As the database connection and its settings will be used frequently by different files and modules, we will define the code in the **model** folder.
+
+## Creating functions for Database Access
+We will now proceed to design our database call to access the data in the database.
+
+We will first be creating an asynchronous function called ```getUser()``` that will return a callback function once the data is returned from the database.
+
