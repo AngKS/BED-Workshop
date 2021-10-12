@@ -278,7 +278,7 @@ app.get('/api/users', (req, res) => {
 ```
 
 ### Endpoint testing time!
-![test 02]()
+![test 02](https://github.com/AngKS/BED-Workshop/blob/main/assets/test02.png?raw=true)
 
 ## POST Request - Add a new User into the database
 
@@ -364,3 +364,6 @@ To handle the HTTP POST Request, we need to use a middleware to extract the enti
         })
     })
     ```
+
+### Endpoint testing time!
+![test 03]()
