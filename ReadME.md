@@ -265,7 +265,7 @@ Next, we will have to add another API endpoint inside ```app.js``` to receive an
 // Endpoint to get ALL users
 app.get('/api/users', (req, res) => {
     
-    User.getAllUsers((err, result) => {
+    User.getAllUser((err, result) => {
         if (!err){
             res.status(200).send(result)
         }
