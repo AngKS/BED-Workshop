@@ -13,7 +13,7 @@ let User = {
             }
             else {
                 console.log('Database Connected!')
-                let QUERY = `SELECT * FROM Users`
+                let QUERY = `SELECT * FROM Users WHERE userID=?`
                 conn.query(QUERY, [id], (err, result) => {
                     conn.end()
                     if (err) {

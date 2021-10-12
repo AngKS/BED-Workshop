@@ -89,7 +89,7 @@ We will first use MySQL to create the database Schema and tables.
    
     ```console
     npm init
-    npm install mysql body-parser express
+    npm install mysql2 body-parser express
     ```
 
 ## Defining and Creating the database connection in database.js
