@@ -7,6 +7,7 @@ In this workshop, we will be understand how to implement and combine data persis
 ## Topics covered
 * What is MVC
 * Setting up Persistent Storage Source using MySQL
+* Setting up the Project workspace
 * Defining & Creating database Connection
 * Creating functions for database access
 * Defining the routing in the controller layer
@@ -125,3 +126,37 @@ We will now proceed to design our database call to access the data in the databa
 
 We will first be creating an asynchronous function called ```getUser()``` that will return a callback function once the data is returned from the database.
 
+1. Create a file inside the model folder called ```user.js```
+2. Add the following code into **user.js**
+   ```js
+    const db = require("./databaseConfig.js")
+
+    let User = {
+        getUser : (userID, callback) => {
+            let conn  = db.getConnection()
+            conn.connect((err) => {
+                if (err){
+                    console.log("Database Error!")
+                    return callback(err, null)
+                }
+                else{
+                    console.log("Database Connected!")
+                    let QUERY = `SELECT * FROM Users WHERE userID = ?`
+                    conn.query(QUERY, [userID], (err, result)=>{
+                        conn.end()
+                        if (err){
+                            console.log("Query Error")
+                            return callback(err, null)
+                        }
+                        else{
+                            console.log("Query Success!")
+                            return callback(null, result)
+                        }
+                    })
+                }
+            })
+        }
+    }
+    module.exports = User
+
+   ```
