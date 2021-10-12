@@ -366,4 +366,16 @@ To handle the HTTP POST Request, we need to use a middleware to extract the enti
     ```
 
 ### Endpoint testing time!
-![test 03]()
+![test 03](https://github.com/AngKS/BED-Workshop/blob/main/assets/test03.png?raw=true)
+
+## PUT Request - Update the particulars of an existing User in the database.
+
+This is where things get a little spcy; we are going to create a new function to UPDATE the **email and password** of an existing record in the database.
+
+```js
+
+
+
+```
+
+

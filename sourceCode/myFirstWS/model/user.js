@@ -75,6 +75,22 @@ let User = {
                 })
             }
         })
+    },
+
+    updateUser : (userid, email, password, callback) => {
+        let conn = db.getConnection()
+        conn.connect((err) => {
+            if (err){
+                return callback(err, null)                
+            }
+            else{
+                console.log('Database Connected!')
+                let QUERY = `UPDATE Users SET email=?, password=? WHERE userID=?`
+                conn.query(QUERY, [email, password, userid], (err, result) => {
+                    
+                })
+            }
+        })
     }
 }
 module.exports = User
