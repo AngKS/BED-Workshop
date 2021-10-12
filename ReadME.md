@@ -257,4 +257,23 @@ const db = require("./databaseConfig.js")
 ```
 We created a new function called ```getAllUser()``` after the previous function for our controller to query the database.
 
-### Next
+### Add the API endpoint
+Next, we will have to add another API endpoint inside ```app.js``` to receive and route the request.
+
+```js
+
+// Endpoint to get ALL users
+app.get('/api/users', (req, res) => {
+    
+    User.getAllUsers((err, result) => {
+        if (!err){
+            res.status(200).send(result)
+        }
+        else{
+            res.status(500).send("Internal Server Error")
+        }
+    })
+})
+
+```
+
