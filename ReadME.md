@@ -212,7 +212,7 @@ We will first be creating an asynchronous function called ```getUser()``` that w
 
    ![Test Server](https://github.com/AngKS/BED-Workshop/blob/main/assets/test01.png?raw=true)
 
-#### Nice! Our Server is Up and ready for more endpoints!
+### Nice! Our Server is Up and ready for more endpoints!
 
 ## GET Request - All users from database
 
@@ -276,6 +276,9 @@ app.get('/api/users', (req, res) => {
 })
 
 ```
+
+### Endpoint testing time!
+![test 02]()
 
 ## POST Request - Add a new User into the database
 
