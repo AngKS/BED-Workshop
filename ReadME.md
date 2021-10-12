@@ -2,7 +2,7 @@
 
 In this workshop, we will be understand how to implement and combine data persistence and a simple web service to develop a simple application backend service.
 
-### [Powerpoint Slides](https://docs.google.com/presentation/d/18_1yieS9Ya9JO49QSkv2flmngZD3-s4gRMsGNwQC-NQ/edit?usp=sharing "Presentation Slides")
+## [Powerpoint Slides](https://docs.google.com/presentation/d/18_1yieS9Ya9JO49QSkv2flmngZD3-s4gRMsGNwQC-NQ/edit?usp=sharing "Presentation Slides")
 
 ## Topics covered
 * What is MVC
@@ -160,3 +160,43 @@ We will first be creating an asynchronous function called ```getUser()``` that w
     module.exports = User
 
    ```
+3. Defining the routes in the controller layer
+   
+   At the controller layer, we will create a new router called ```app.js``` to define the application routing.
+
+   ```js
+    const express = require("express")
+    const User = require("../model/user.js")
+
+    const app = express()
+
+    // API Endpoints
+
+    app.get('/api/user/:userID', (req, res) => {
+        let userID = req.params.userID
+
+        User.getUser(userID, (err, result) => {
+            if (!err){
+                res.status(200).send(result)
+            }
+            else{
+                res.status(500).send("Internal Server Error")
+            }
+        })
+    })
+    module.exports = app
+   ```
+4. Creating our main server in the root folder
+   We will create a ```server.js``` file for the server to listen at **port 8081**
+
+   ```js
+    const app = require("./controller/app.js")
+
+    let port = 8081
+
+    const server = app.listen(port, () => {
+        console.log("Server is running at Port: " + port)
+    })
+
+   ```
+5. Test out our server
