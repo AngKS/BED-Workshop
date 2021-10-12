@@ -121,6 +121,22 @@ module.exports = dbConnect
 
 As the database connection and its settings will be used frequently by different files and modules, we will define the code in the **model** folder.
 
+## Creating our main server in the root folder
+
+   We will create a ```server.js``` file for the server to listen at **port 8081**
+
+   ```js
+    const app = require("./controller/app.js")
+
+    let port = 8081
+
+    const server = app.listen(port, () => {
+        console.log("Server is running at Port: " + port)
+    })
+
+   ```
+   An error might occur as the ```app.js``` file has not been created. (Don't worry and read on :D)
+
 ## Creating functions for Database Access
 We will now proceed to design our database call to access the data in the database.
 
@@ -186,26 +202,14 @@ We will first be creating an asynchronous function called ```getUser()``` that w
     })
     module.exports = app
    ```
-4. Creating our main server in the root folder
-   We will create a ```server.js``` file for the server to listen at **port 8081**
 
-   ```js
-    const app = require("./controller/app.js")
-
-    let port = 8081
-
-    const server = app.listen(port, () => {
-        console.log("Server is running at Port: " + port)
-    })
-
-   ```
-5. Test out our server
+4. Test out our server
    
    We will now test out the server. Open up the integrated terminal in your VScode and key in the following ```node server.js```
 
    Open your Browser and input ```localhost:8081/api/user/1``` into the address bar and you should see the JSON object appear.
 
-   ![Test Server]()
+   ![Test Server](https://github.com/AngKS/BED-Workshop/blob/main/assets/test01.png?raw=true)
 
 #### Nice! Our Server is Up and ready for more endpoints!
 
