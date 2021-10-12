@@ -7,11 +7,11 @@ In this workshop, we will be understand how to implement and combine data persis
 ## Topics covered
 * What is MVC
 * Setting up Persistent Storage Source using MySQL
-* Setting up the Project workspace
+* Setting up the application directory and files
 * Defining & Creating database Connection
-* Creating functions for database access
-* Defining the routing in the controller layer
 * Creating main server in the root folder
+* Defining the API Endpoints
+* Creating functions for database access
 * Creating **GET** Method for retrieving User data
 * Creating **POST** Method for inserting and retrieving User data
 * Creating **DELETE** method for deleting User data
@@ -64,17 +64,6 @@ We will first use MySQL to create the database Schema and tables.
 
     Input the first 2 rows of values (excluding the last column *created_at*)
 
-## Restful APIs
-
-| URL        | HTTP Method | POST Body   | Result                         |
-| ---------- | ----------- | ----------- | ------------------------------ |
-| /user      | GET         | empty       | Retrieve ALL user data         |
-| /user/{id} | GET         | empty       | Retrieve user data with userID |
-| /user      | POST        | JSON object | Insert new user record         |
-| /user/{id} | PUT         | JSON object | Update existing user record    |
-| /user/{id} | DELETE      | empty       | Delete user with ID            |
-
-
 
 ## Setting up the application directory and files
 
@@ -120,6 +109,18 @@ module.exports = dbConnect
 ```
 
 As the database connection and its settings will be used frequently by different files and modules, we will define the code in the **model** folder.
+
+## Restful APIs
+
+| URL        | HTTP Method | POST Body   | Result                         |
+| ---------- | ----------- | ----------- | ------------------------------ |
+| /user      | GET         | empty       | Retrieve ALL user data         |
+| /user/{id} | GET         | empty       | Retrieve user data with userID |
+| /user      | POST        | JSON object | Insert new user record         |
+| /user/{id} | PUT         | JSON object | Update existing user record    |
+| /user/{id} | DELETE      | empty       | Delete user with ID            |
+
+
 
 ## Creating our main server in the root folder
 
