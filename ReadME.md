@@ -284,30 +284,30 @@ To handle the HTTP POST Request, we need to use a middleware to extract the enti
 
 1. Add Express bodyparser.
 
-```js
-    app.use(express.json()) // used to parse JSON objects
-    app.use(express.urlencoded()) // used to parse URL-encoded bodies
-```
-The 2 lines above are the built-in bodyParser for parsing JSON objects and url-encoded contents of the incoming request. Insert it right before the first API endpoint as follows:
-```js
-const express = require("express")
-const User = require("../model/user.js")
+    ```js
+        app.use(express.json()) // used to parse JSON objects
+        app.use(express.urlencoded()) // used to parse URL-encoded bodies
+    ```
+    The 2 lines above are the built-in bodyParser for parsing JSON objects and url-encoded contents of the incoming request. Insert it right before the first API endpoint as follows:
+    ```js
+    const express = require("express")
+    const User = require("../model/user.js")
 
-const app = express()
+    const app = express()
 
-app.use(express.json()) 
-app.use(express.urlencoded()) 
+    app.use(express.json()) 
+    app.use(express.urlencoded()) 
 
- // API Endpoints
-app.get('/api/user/:userID', (req, res) => {
-    /* endpoint codes */
-})
-app.get('/api/user/:userID', (req, res) => {
-    /* endpoint codes */
-})
-module.exports = app
+    // API Endpoints
+    app.get('/api/user/:userID', (req, res) => {
+        /* endpoint codes */
+    })
+    app.get('/api/user/:userID', (req, res) => {
+        /* endpoint codes */
+    })
+    module.exports = app
 
-```
+    ```
 2. Create a new function to INSERT a new user into the database
 
     ```js
