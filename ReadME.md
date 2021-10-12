@@ -216,7 +216,7 @@ We will first be creating an asynchronous function called ```getUser()``` that w
 
 ## GET Request - All users from database
 
-We will now be creating a new endpoint to GET all users from the database.
+We will now be creating a new function to GET all users from the database.
 
 ```js
 // Insert the code after yout getUser function in user.js
@@ -279,3 +279,85 @@ app.get('/api/users', (req, res) => {
 
 ## POST Request - Add a new User into the database
 
+To handle the HTTP POST Request, we need to use a middleware to extract the entire body portion of the incoming request stream.
+
+
+1. Add Express bodyparser.
+
+```js
+    app.use(express.json()) // used to parse JSON objects
+    app.use(express.urlencoded()) // used to parse URL-encoded bodies
+```
+The 2 lines above are the built-in bodyParser for parsing JSON objects and url-encoded contents of the incoming request. Insert it right before the first API endpoint as follows:
+```js
+const express = require("express")
+const User = require("../model/user.js")
+
+const app = express()
+
+app.use(express.json()) 
+app.use(express.urlencoded()) 
+
+ // API Endpoints
+app.get('/api/user/:userID', (req, res) => {
+    /* endpoint codes */
+})
+app.get('/api/user/:userID', (req, res) => {
+    /* endpoint codes */
+})
+module.exports = app
+
+```
+2. Create a new function to INSERT a new user into the database
+
+    ```js
+    addUser : (username, email, course, age, password, callback) => {
+        let conn = db.getConnection()
+        conn.connect((err) => {
+            if (err){
+                return callback(err, null)
+            }
+            else{
+                console.log('Database Connected!')
+                let QUERY = `INSERT INTO Users(username, email, course, age, password) VALUES (?, ?, ?, ?, ?)`
+                conn.query(QUERY, [username, email, course, age, password], (err, result) => {
+                    conn.end()
+                    if (err){
+                        console.log('Query Error!')
+                        return callback(err, null)
+                    }
+                    else{
+                        console.log('Query Success!')
+                        return callback(null, result.affectedRows)
+                    }
+                })
+            }
+        })
+    }
+
+    ```
+    Insert the code above right after the previous ```getAllUser()``` function for our controller to query the database.
+
+    ### Add the API Endpoint
+
+    We will now add the POST endpoint inside ```app.js``` to receive and route the request to insert the new user into the database.
+
+    ```js
+    app.post('/api/user', (req, res) => {
+        let username = req.body.username
+        let email = req.body.email
+        let course = req.body.course
+        let age = req.body.age
+        let password = req.body.password
+
+        User.addUser(username, email, course, age, password, (err, result) => {
+            if (!err){
+                console.log(result)
+                res.status(200).send(result + ' records inserted!')
+            }
+            else{
+                res.status(err.statusCode).send("Server Error!")
+            }
+        })
+    })
+    ```
