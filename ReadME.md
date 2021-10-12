@@ -87,9 +87,10 @@ We will first use MySQL to create the database Schema and tables.
 3. Right-click on the explorer pane empty space or press <kbd>Ctrl</kbd> + <kbd>`</kbd> to open up the integrated terminal.
 4. Run the following code in the integrated terminal to setup and install the necessary packages for your project.
    
-    ```console
+    ```
     npm init
     npm install mysql2 body-parser express
+    
     ```
 
 ## Defining and Creating the database connection in database.js
