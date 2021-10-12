@@ -200,3 +200,56 @@ We will first be creating an asynchronous function called ```getUser()``` that w
 
    ```
 5. Test out our server
+   
+   We will now test out the server. Open up the integrated terminal in your VScode and key in the following ```node server.js```
+
+   Open your Browser and input ```localhost:8081/api/user/1``` into the address bar and you should see the JSON object appear.
+
+   ![Test Server]()
+
+#### Nice! Our Server is Up and ready for more endpoints!
+
+## GET Request - All users from database
+
+We will now be creating a new endpoint to GET all users from the database.
+
+```js
+// Insert the code after yout getUser function in user.js
+const db = require("./databaseConfig.js")
+
+    let User = {
+        getUser : (userID, callback) => {
+            /* previous endpoint code */
+        },
+
+        getAllUser : (callback) => {
+            let conn  = db.getConnection()
+            conn.connect((err) => {
+                if (err){
+                    console.log("Database Error!")
+                    return callback(err, null)
+                }
+                else{
+                    console.log("Database Connected!")
+                    let QUERY = `SELECT * FROM Users`
+                    conn.query(QUERY, (err, result)=>{
+                        conn.end()
+                        if (err){
+                            console.log("Query Error")
+                            return callback(err, null)
+                        }
+                        else{
+                            console.log("Query Success!")
+                            return callback(null, result)
+                        }
+                    })
+                }
+            })
+        }
+    }
+    module.exports = User
+
+```
+We created a new function called ```getAllUser()``` after the previous function for our controller to query the database.
+
+### Next
