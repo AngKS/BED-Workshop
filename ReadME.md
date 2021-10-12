@@ -277,3 +277,5 @@ app.get('/api/users', (req, res) => {
 
 ```
 
+## POST Request - Add a new User into the database
+
