@@ -15,17 +15,18 @@ Please also install **[Postman](https://www.postman.com/)** for API Endpoint tes
 
 
 ## Topics covered
-* What is MVC
-* Setting up Persistent Storage Source using MySQL
-* Setting up the application directory and files
-* Defining & Creating database Connection
-* Creating main server in the root folder
-* Defining the API Endpoints
-* Creating functions for database access
-* Creating **GET** Method for retrieving User data
-* Creating **POST** Method for inserting and retrieving User data
-* Creating **UPDATE** Method to update User data
-* Creating **DELETE** method for deleting User data
+* [What is MVC](https://github.com/AngKS/BED-Workshop#what-is-mvc)
+* [Setting up Persistent Storage Source using MySQL](https://github.com/AngKS/BED-Workshop#setting-up-persistent-storage-source-with-mysql)
+* [Setting up the application directory and files](https://github.com/AngKS/BED-Workshop#setting-up-the-application-directory-and-files)
+* [Defining & Creating database Connection](https://github.com/AngKS/BED-Workshop#defining-and-creating-the-database-connection-in-databasejs)
+* [Defining the API Endpoints](https://github.com/AngKS/BED-Workshop#restful-apis)
+* [Creating main server in the root folder](https://github.com/AngKS/BED-Workshop#creating-our-main-server-in-the-root-folder)
+
+* [Creating functions for database access](https://github.com/AngKS/BED-Workshop#creating-functions-for-database-access)
+* [Creating **GET** Method for retrieving User data](https://github.com/AngKS/BED-Workshop#get-request---all-users-from-database)
+* [Creating **POST** Method for inserting and retrieving User data](https://github.com/AngKS/BED-Workshop#post-request---add-a-new-user-into-the-database)
+* [Creating **UPDATE** Method to update User data](https://github.com/AngKS/BED-Workshop#put-request---update-the-particulars-of-an-existing-user-in-the-database)
+* [Creating **DELETE** method for deleting User data](https://github.com/AngKS/BED-Workshop#delete-request---deleting-an-existing-user-record-form-the-database)
 
 
 
@@ -497,7 +498,7 @@ app.delete('/api/user/:userID', (req, res) => {
 
 ### Endpoint Testing
 
-![Test05]()
+![Test05](https://github.com/AngKS/BED-Workshop/blob/main/assets/test05.png?raw=true)
 
 ## Summary
 
