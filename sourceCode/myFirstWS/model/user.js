@@ -100,6 +100,33 @@ let User = {
                 })
             }
         })
+    },
+
+    deleteUser : (userID, callback) => {
+        let conn = db.getConnection()
+        conn.connect((err) => {
+            if (err){
+                console.log('Connection error!')
+                return callback(err, null)
+            }
+            else{
+                console.log('Database Connected!')
+                let QUERY = `DELETE FROM Users WHERE userID = ? `
+                conn.query(QUERY, [userID], (err, result) => {
+                    conn.end()
+                    if (err){
+                        console.log('Query Error')
+                        return callback(err, null)
+                    }
+                    else{
+                        console.log('Query Success!')
+                        console.log('Successfully deleted ' + result.affectedRows + ' record(s)')
+                        return callback(null, result.affectedRows)
+                    }
+                })
+                
+            }
+        })
     }
 }
 module.exports = User

@@ -14,8 +14,9 @@ In this workshop, we will be understand how to implement and combine data persis
 * Creating functions for database access
 * Creating **GET** Method for retrieving User data
 * Creating **POST** Method for inserting and retrieving User data
-* Creating **DELETE** method for deleting User data
 * Creating **UPDATE** Method to update User data
+* Creating **DELETE** method for deleting User data
+
 
 
 we will be designing our web service based on the Model-View-Controller (MVC) Design with the above API endpoints.
@@ -432,3 +433,45 @@ Using postman, change the request to a **PUT** request and input the new email a
 ![test04Result](https://github.com/AngKS/BED-Workshop/blob/main/assets/test04Result02.png?raw=true)
 
 The above image shows the updated information being accurately reflected using the GET user endpoint.
+
+## DELETE Request - Deleting an existing user record form the database.
+
+Lastly, we have the **DELETE** requests to remove those unwanted user informations 😏
+
+```js
+deleteUser : (userID, callback) => {
+        let conn = db.getConnection()
+        conn.connect((err) => {
+            if (err){
+                console.log('Connection error!')
+                return callback(err, null)
+            }
+            else{
+                console.log('Database Connected!')
+                let QUERY = `DELETE FROM Users WHERE userID = ? `
+                conn.query(QUERY, [userID], (err, result) => {
+                    conn.end()
+                    if (err){
+                        console.log('Query Error')
+                        return callback(err, null)
+                    }
+                    else{
+                        console.log('Query Success!')
+                        console.log('Successfully deleted ' + result.affectedRows + ' record(s)')
+                        return callback(null, result.affectedRows)
+                    }
+                })
+                
+            }
+        })
+    }
+
+```
+
+### Adding the DELETE API Endpoint
+
+Input the following into ```app.js``` after the previous endpoint.
+
+```js
+
+```

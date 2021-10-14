@@ -69,4 +69,15 @@ app.put('/api/user/:userid', (req, res) => {
     })
 })
 
+app.delete('/api/user/:userID', (req, res) => {
+    let userID = req.params.userID
+
+    User.deleteUser(userID, (err, result) => {
+        if (!err) {
+            res.status(200).send('Successfully deleted ' + result + ' record(s)')
+        }
+    })
+
+})
+
 module.exports = app
