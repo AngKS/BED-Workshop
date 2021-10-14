@@ -4,6 +4,16 @@ In this workshop, we will be understand how to implement and combine data persis
 
 ## [Powerpoint Slides](https://docs.google.com/presentation/d/18_1yieS9Ya9JO49QSkv2flmngZD3-s4gRMsGNwQC-NQ/edit?usp=sharing "Presentation Slides")
 
+## Usage
+After cloning/downlaoding the files, run ```npm install``` to install all dependencies needed to run the scripts. Alse update your ```user``` and ```password``` for your local MySQL login.
+
+## Dependencies
+- [Express.js](https://expressjs.com/)
+- [MySQL2](https://www.npmjs.com/package/mysql2)
+
+Please also install **[Postman](https://www.postman.com/)** for API Endpoint testing
+
+
 ## Topics covered
 * What is MVC
 * Setting up Persistent Storage Source using MySQL
@@ -473,5 +483,29 @@ deleteUser : (userID, callback) => {
 Input the following into ```app.js``` after the previous endpoint.
 
 ```js
+app.delete('/api/user/:userID', (req, res) => {
+    let userID = req.params.userID
 
+    User.deleteUser(userID, (err, result) => {
+        if (!err) {
+            res.status(200).send('Successfully deleted ' + result + ' record(s)')
+        }
+    })
+
+})
 ```
+
+### Endpoint Testing
+
+![Test05]()
+
+## Summary
+
+This guide has covered the 4 basic **CRUD** functions for setting up a web service to query our database with the example source codes.
+
+### Credits
+Content/repository - [Kah Shin](www.github.com/angks)
+Powerpoint Slides - [Choon How](www.github.com/faythlii)
+
+
+&copy; angkahshin 2021
