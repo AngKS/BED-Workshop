@@ -370,7 +370,7 @@ To handle the HTTP POST Request, we need to use a middleware to extract the enti
 
 ## PUT Request - Update the particulars of an existing User in the database.
 
-This is where things get a little spcy; we are going to create a new function to UPDATE the **email and password** of an existing record in the database.
+This is where things get a little spicy; we are going to create a new function to UPDATE the **email and password** of an existing record in the database.
 
 ```js
 
@@ -414,7 +414,7 @@ app.put('/api/user/:userid', (req, res) => {
 
     User.updateUser(userID, email, password, (err, result) => {
         if (!err) {
-            res.status.send(result + ' record(s) updated!')
+            res.status(200).send(result + ' record(s) updated!')
         }
         else {
             res.status(err.statusCode).send('Server Error!')

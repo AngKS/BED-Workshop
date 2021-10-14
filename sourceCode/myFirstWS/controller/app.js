@@ -61,7 +61,7 @@ app.put('/api/user/:userid', (req, res) => {
 
     User.updateUser(userID, email, password, (err, result) => {
         if (!err) {
-            res.status.send(result + ' record(s) updated!')
+            res.status(200).send(result + ' record(s) updated!')
         }
         else {
             res.status(err.statusCode).send('Server Error!')
