@@ -425,4 +425,10 @@ app.put('/api/user/:userid', (req, res) => {
 
 
 ### Endpoint testing time!
-![test 03](https://github.com/AngKS/BED-Workshop/blob/main/assets/test03.png?raw=true)
+![test 04](https://github.com/AngKS/BED-Workshop/blob/main/assets/test04.png?raw=true)
+
+Using postman, change the request to a **PUT** request and input the new email and password to be changed inside the body of the request.
+
+![test04Result](https://github.com/AngKS/BED-Workshop/blob/main/assets/test04Result02.png?raw=true)
+
+The above image shows the updated information being accurately reflected using the GET user endpoint.
