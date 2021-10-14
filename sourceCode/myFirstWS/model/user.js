@@ -87,7 +87,16 @@ let User = {
                 console.log('Database Connected!')
                 let QUERY = `UPDATE Users SET email=?, password=? WHERE userID=?`
                 conn.query(QUERY, [email, password, userid], (err, result) => {
-                    
+                    conn.end()
+                    if (err){
+                        console.log(err)
+                        return callback(err, null)
+                    }
+                    else{
+                        console.log('No. of records successfully updated: ' + result.affectedRows)
+                        return callback(null, result.affectedRows)
+                        
+                    }
                 })
             }
         })

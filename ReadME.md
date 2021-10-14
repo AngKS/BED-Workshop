@@ -374,8 +374,55 @@ This is where things get a little spcy; we are going to create a new function to
 
 ```js
 
-
+updateUser : (userid, email, password, callback) => {
+        let conn = db.getConnection()
+        conn.connect((err) => {
+            if (err){
+                return callback(err, null)                
+            }
+            else{
+                console.log('Database Connected!')
+                let QUERY = `UPDATE Users SET email=?, password=? WHERE userID=?`
+                conn.query(QUERY, [email, password, userid], (err, result) => {
+                    conn.end()
+                    if (err){
+                        console.log(err)
+                        return callback(err, null)
+                    }
+                    else{
+                        console.log('No. of records successfully updated: ' + result.affectedRows)
+                        return callback(null, result.affectedRows)
+                        
+                    }
+                })
+            }
+        })
+    }
 
 ```
 
+### Create PUT API Endpoint
 
+Input the following code after the previous API endpoint
+
+```js
+// Endpoint for updating existing user in database
+app.put('/api/user/:userid', (req, res) => {
+    let userID = req.params.userid
+    let email = req.body.email
+    let password = req.body.password
+
+    User.updateUser(userID, email, password, (err, result) => {
+        if (!err) {
+            res.status.send(result + ' record(s) updated!')
+        }
+        else {
+            res.status(err.statusCode).send('Server Error!')
+        }
+    })
+})
+```
+
+
+### Endpoint testing time!
+![test 03](https://github.com/AngKS/BED-Workshop/blob/main/assets/test03.png?raw=true)

@@ -34,6 +34,7 @@ app.get('/api/user/:userID', (req, res) => {
     })
 })
 
+// Endpoint for inserting a new user into the database
 app.post('/api/user', (req, res) => {
     let username = req.body.username
     let email = req.body.email
@@ -48,6 +49,22 @@ app.post('/api/user', (req, res) => {
         }
         else {
             res.status(err.statusCode).send("Server Error!")
+        }
+    })
+})
+
+// Endpoint for updating existing user in database
+app.put('/api/user/:userid', (req, res) => {
+    let userID = req.params.userid
+    let email = req.body.email
+    let password = req.body.password
+
+    User.updateUser(userID, email, password, (err, result) => {
+        if (!err) {
+            res.status.send(result + ' record(s) updated!')
+        }
+        else {
+            res.status(err.statusCode).send('Server Error!')
         }
     })
 })
