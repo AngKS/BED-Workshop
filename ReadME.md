@@ -491,8 +491,10 @@ app.delete('/api/user/:userID', (req, res) => {
         if (!err) {
             res.status(200).send('Successfully deleted ' + result + ' record(s)')
         }
+        else{
+            res.status(500).send("Server Error")
+        }
     })
-
 })
 ```
 
