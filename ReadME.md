@@ -507,9 +507,9 @@ app.delete('/api/user/:userID', (req, res) => {
 This guide has covered the 4 basic **CRUD** functions for setting up a web service to query our database with the example source codes.
 
 ### Credits
-Content/repository - [Kah Shin](www.github.com/angks)
+Content/repository - [Kah Shin](https://www.github.com/angks)
 
-Powerpoint Slides - [Choon How](www.github.com/faythlii)
+Powerpoint Slides - [Faythlii](https://www.github.com/faythlii)
 
 
 &copy; angkahshin 2021
